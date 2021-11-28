@@ -1,0 +1,36 @@
+<div class="container mt-5">
+    <table class="table mb-3">
+        <thead class="table-dark">
+            <tr style="text-align: center;">
+                <th scope="col">S.No</th>
+                <th scope="col">Room Id</th>
+                <th scope="col">Capacity</th>
+                <th scope="col">Current</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i=0; i<rooms.length; i++) { %> 
+                <% const room = rooms[i]; %> 
+                <tr style="text-align: center;">
+                    <th scope="row"><%= i %></th>
+                    <td><%= room._id %></td>
+                    <td><%= room.capacity %> </td>
+                    <td><%= room.people.length %></td>
+                    <td>
+                        <div class="">
+                            <a href="/rooms/view/<%= room._id %> " class="btn btn-primary"><i class="bi bi-eye-fill"></i></a>
+                            <a href="/people/add/<%= room._id %>" class="btn btn-secondary"><i class="bi bi-plus-circle-fill"></i></a>
+                            <a href="/rooms/delete/<%= room._id %> " class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+                        </div>
+                    </th>
+                </tr>
+            <% } %> 
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-center">
+        <a href="/rooms/add" class="btn btn-primary">Add Room</a>
+    </div>
+
+</div>

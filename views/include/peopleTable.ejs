@@ -1,0 +1,37 @@
+<div class="container mt-5">
+    <div class="d-flex justify-content-between mt-3">
+            <a href="/" class="btn btn-primary">Back</a>
+            <h4> Room-id: <%= roomId %>  </h4>
+            <a href="/people/add/<%= roomId %>" class="btn btn-primary">Add Person</a>
+    </div>
+
+    <table class="table container mt-3">
+        <thead class="table-dark">
+            <tr style="text-align: center;">
+                <th scope="col">S.No</th>
+                <th scope="col">Name</th>
+                <th scope="col">Fee Status</th>
+                <th scope="col">Room Id</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i=0; i<people.length; i++) { %> 
+                <% const person = people[i]; %> 
+                <tr style="text-align: center;">
+                    <th scope="row"><%= i %></th>
+                    <td><%= person.name %></td>
+                    <td><% if(person.feeStatus) {%> Paid <% } else {%> Pending <% } %>   </td>
+                    <td><%= person.room %></td>
+                    <td>
+                        <div class="">
+                            <!--<a href="#" class="btn btn-primary"><i class="bi bi-eye-fill"></i></a>-->
+                            <a href="/people/update/<%= person._id %> " class="btn btn-secondary"><i class="bi bi-pencil-fill"></i></a>
+                            <a href="/people/delete/<%= person._id %> " class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+                        </div>
+                    </th>
+                </tr>
+            <% } %> 
+        </tbody>
+    </table>
+</div>

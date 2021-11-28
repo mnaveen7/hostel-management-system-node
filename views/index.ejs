@@ -1,0 +1,9 @@
+<%- include('./include/header') %> 
+<%- include('./include/roomTable') %> 
+
+<% if(alertRoom) {%> 
+    <script>
+        alert('<%= message %>');
+    </script>
+<% } %> 
+<%- include('./include/footer') %> 
