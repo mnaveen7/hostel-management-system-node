@@ -3,6 +3,7 @@ const router = require('./router/router')
 
 const app = express();
 
+const host = 'localhost';
 const port = 3000;
 
 app.use(express.json());
@@ -11,4 +12,4 @@ app.set('view engine', 'ejs');
 app.use('/static', express.static('./static'));
 app.use('/', router);
 
-app.listen(port);
+app.listen(port,host, ()=> console.log(`Webserver is running on http://${host}:${port}`));
