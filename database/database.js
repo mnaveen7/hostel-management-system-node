@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Person = require('../model/person')
 const Room = require('../model/room')
 
-mongoose.connect('mongodb://naveen:password@localhost/hostel').then(() => console.log('Connected'));
+mongoose.connect('mongodb://localhost/hostel').then(() => console.log('Connected'));
 
 module.exports.createPerson = async (name, feeStatus, room) => {
     const person = new Person({
